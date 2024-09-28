@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3a386331-96e0-4426-9900-bcd76c2c7b64" activeEnvironment="Default" name="FanCode" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="9dd00e55-1778-4a92-98e3-f46553ef657a" wadlVersion="http://wadl.dev.java.net/2009/02" name="ToDos" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint></con:endpoints><con:resource name="Todos" path="/users/{userID}/todos" id="f68aed52-5dec-41cd-a318-1b3f08158749"><con:settings/><con:parameters><con:parameter><con:name>userID</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/></con:parameter></con:parameters><con:method name="Todos" id="8952ba70-2a32-4f19-b35a-84f6edc8c069" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>Fault</con:element></con:representation><con:request name="ToDos Tasks" id="c1510bdb-ae01-4d54-9062-4e2f9084e43f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint><con:request/><con:originalUri>https://jsonplaceholder.typicode.com/users/1/todos</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="userID" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>userID</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" id="7fcaaf3a-1ee2-41e4-b317-4f55052d0f12" wadlVersion="http://wadl.dev.java.net/2009/02" name="Users" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint></con:endpoints><con:resource name="AllUsers" path="/users" id="c6c1968c-2dc0-416a-8bf6-f7f04d1e3e4f"><con:settings/><con:parameters/><con:method name="GetAllUsers" id="101102dc-523d-4eb1-9831-0f206a7ed727" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="GetAllUsers" id="6977bbb9-4e8e-4676-9ebb-48b2e819e2df" mediaType="application/json"><con:settings/><con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="d12f3591-caf4-48c9-b779-e28bc8dff263" name="FanCode Assignment"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="451fdfe6-0666-4a44-a688-ec9a1a07832e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FanCode City" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Get All Users" id="9e0cc394-6e91-44c4-b032-06b9adbfddc1" disabled="true"><con:settings/><con:config service="Users" resourcePath="/users" methodName="GetAllUsers" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get All Users" id="6977bbb9-4e8e-4676-9ebb-48b2e819e2df" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>https://jsonplaceholder.typicode.com/users</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="e50d15e4-2bb9-4b14-9d89-ecaa1fad4ef8" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Get ToDos Tasks for each User" id="8f4f644b-55b4-459a-89cc-2c564416237e" disabled="true"><con:settings/><con:config service="ToDos" resourcePath="/users/{userID}/todos" methodName="Todos" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get ToDos Tasks for each User" id="c1510bdb-ae01-4d54-9062-4e2f9084e43f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#endpoint}</con:endpoint><con:request/><con:originalUri>https://jsonplaceholder.typicode.com/users/1/todos</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="3981dd25-8888-48ca-b2d6-9ac9edbf95a0" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="userID" value="${#TestSuite#userID}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>userID</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="FanCode City with User Completed Task more than 50%" id="fdb993fa-f32e-4ed0-ad3e-440b6979838e"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+
+testRunner.runTestStepByName("Get All Users") //Run Test Step Get All Users
+def response = testRunner.testCase.testSteps["Get All Users"].getPropertyValue("Response") //Store response of Get All Users
+def jsonSlurper = new JsonSlurper() //define json Slurper
+def jsonResponse = jsonSlurper.parseText(response) //parse json data
+def userID = jsonResponse.id.size() //get no. of userID present
+def lat = jsonResponse.address.geo.lat //get lattitude values
+def lng = jsonResponse.address.geo.lng //get longitude values
+
+def fanCodeUsers = []   //Store FanCode UserID
+def fanCodeCities = []  //Store FanCode Cities
+for(int i=0 ; i<userID; i++)
+{
+	def latvalue = Double.parseDouble(lat[i])
+	def lngvalue = Double.parseDouble(lng[i])
+	if (latvalue >= -40 && latvalue <= 5 && lngvalue >= 5 && lngvalue <= 100) {  // lat between ( -40 to 5) and long between ( 5 to 100)
+          fanCodeUsers << jsonResponse.id[i]
+          fanCodeCities << jsonResponse.address[i].city
+    }
+}
+
+for(int i=0; i<fanCodeUsers.size(); i++)
+{
+	log.info("UserID: " +fanCodeUsers[i] +"   City: "+fanCodeCities[i]) //Print UserID and City
+	testRunner.testCase.testSuite.setPropertyValue("userID",fanCodeUsers[i].toString()) //Store UserID
+	testRunner.runTestStepByName("Get ToDos Tasks for each User") //Run TestStep Get ToDos Tasks for each User
+	def response1 = testRunner.testCase.testSteps["Get ToDos Tasks for each User"].getPropertyValue("Response") //Store Response
+     def jsonResponse1 = jsonSlurper.parseText(response1) //parse json data
+     def todos = jsonResponse1.completed.size() //get no. of todos task
+     //Get no. of task completed and not completed
+     def completed = 0
+     def notCompleted = 0
+     for (int j=0 ; j< todos; j++)
+     {
+     	if(jsonResponse1.completed[j] == true)
+     	{
+     		completed ++
+     	}
+     	else
+     	{
+     		notCompleted ++
+     	}
+     }
+     def taskCompletPercentage = (completed/todos) * 100 //get percentage of task completed
+     def taskInCompletPercentage = 100 - taskCompletPercentage //get percentage of incomplete Task
+     log.info("Task Completed: "+taskCompletPercentage+"%") //print percentage of task completed
+     log.info("Task Left to Complete: "+taskInCompletPercentage+"%") //print percentage of incomplete Task
+}]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>userID</con:name><con:value>10</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>endpoint</con:name><con:value>https://jsonplaceholder.typicode.com</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
