@@ -10,15 +10,15 @@ Open FanCode City with User Completed Task more than 50%(Groovy Script)
 Run Groovy Script.
 
 # Output
-Sun Sep 29 01:24:20 IST 2024:INFO:UserID: 1   City: Gwenborough
-Sun Sep 29 01:24:20 IST 2024:INFO:Task Completed: 55.00%
-Sun Sep 29 01:24:20 IST 2024:INFO:Task Left to Complete: 45.00%
-Sun Sep 29 01:24:20 IST 2024:INFO:UserID: 5   City: Roscoeview
-Sun Sep 29 01:24:21 IST 2024:INFO:Task Completed: 60.0%
-Sun Sep 29 01:24:21 IST 2024:INFO:Task Left to Complete: 40.0%
-Sun Sep 29 01:24:21 IST 2024:INFO:UserID: 10   City: Lebsackbury
-Sun Sep 29 01:24:21 IST 2024:INFO:Task Completed: 60.0%
-Sun Sep 29 01:24:21 IST 2024:INFO:Task Left to Complete: 40.0%
+UserID: 1   City: Gwenborough
+Task Completed: 55.00%
+Task Left to Complete: 45.00%
+UserID: 5   City: Roscoeview
+Task Completed: 60.0%
+Task Left to Complete: 40.0%
+UserID: 10   City: Lebsackbury
+Task Completed: 60.0%
+Task Left to Complete: 40.0%
 
 # Code in Groovy Script:
 import groovy.json.JsonSlurper
